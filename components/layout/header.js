@@ -17,11 +17,11 @@ export default function HeaderComponent(props) {
                     defaultSelectedKeys={['2']}
 
                 >
-                    <Menu.Item key={"1"} className="menu-item">Home</Menu.Item>
-                    <Menu.Item key={"2"} className="menu-item">Pricing</Menu.Item>
-                    <Menu.Item key={"3"} className="menu-item">About</Menu.Item>
-                    <Menu.Item key={"4"} className="menu-item">Contact</Menu.Item>
-                    <Menu.Item key={"4"} className="menu-item">Help</Menu.Item>
+                    <Menu.Item key={"1"} className="menu-item"><Link href="/"><a>Home</a></Link></Menu.Item>
+                    <Menu.Item key={"2"} className="menu-item"><Link href="/pricing"><a>Pricing</a></Link></Menu.Item>
+                    <Menu.Item key={"3"} className="menu-item"><Link href="/about"><a>About</a></Link></Menu.Item>
+                    <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
+                    <Menu.Item key={"4"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
                     <Menu.Item key={"5"} disabled={true} className="menu-item">
                         <Button type="primary" shape="round" onClick={() => { console.log("object"); }} >
                             Login
