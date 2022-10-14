@@ -1,12 +1,29 @@
-import Link from "next/link";
 import React from 'react';
-import Image from 'next/image'
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from 'next/image';
 import { Layout, Menu, Button } from 'antd';
 
-const { Header } = Layout;
 import './header.module.css';
 
+import { LoginModal } from '../modals/loginModal';
+
+const { Header } = Layout;
+
 export default function HeaderComponent(props) {
+    const [isLoginModalOpen, LoginModalOpenStateChange] = useState(false);
+
+
+
+    const clickOnLogin = (event) => {
+        console.log('event', event);
+        LoginModalOpenStateChange(!isLoginModalOpen)
+    }
+
+    const closeLoginModal = () => {
+        LoginModalOpenStateChange(false)
+    }
+
     return (
         <Header className="clearfix">
             <div className="logo"><Image src="/Final-AutoBid-360-Logo.svg" alt="Vercel Logo" width={170} height={70} /></div>
@@ -23,13 +40,13 @@ export default function HeaderComponent(props) {
                     <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
                     <Menu.Item key={"5"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
                     <Menu.Item key={"6"} disabled={true} className="menu-item">
-                        <Button type="primary" shape="round" onClick={() => { console.log("object"); }} >
+                        <Button type="primary" shape="round" onClick={() => { clickOnLogin(true) }} >
                             Login
                         </Button>
                     </Menu.Item>
                 </Menu>
             </div>
-
+            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} />
         </Header>
     );
 }
