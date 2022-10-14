@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const verify = (req, res) => {
     try {
+        // this is a dumy api
         const token = jwt.sign({ email: 'gayashansameera30@gmail.com', password: "123" }, 'shhhhh');
 
         const sample = {
