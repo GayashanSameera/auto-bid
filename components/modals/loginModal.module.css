@@ -1,0 +1,24 @@
+.loginModal{
+    margin-top: 200px;
+}
+
+.loginHeader {
+    color: #000;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.loginLabel {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+.labelRow {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}

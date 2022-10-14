@@ -4,18 +4,19 @@ import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import BrowserStorage from './storage';
 import store from '../redux/store';
 
-import { updateLoggedUser } from '../containers/layout/actions';
+import { handleSession } from '../helpers/sessionHelper';
 
-const moment = require('moment');
 
 const storage = BrowserStorage.getInstance();
 
 // Function that will be called to refresh authorization when ever request gets authorized denied
+
+/*
 const refreshAuthLogic = failedRequest => {
   const { data } = storage.getUserSession();
   const { idToken, accessToken, refreshToken } = data;
 
-  const url = 'https://cognito-idp.eu-west-2.amazonaws.com/';
+  const url = 'https://.amazonaws.com/';
   const options = {
     method: 'POST',
     headers: {
@@ -55,30 +56,21 @@ const refreshAuthLogic = failedRequest => {
         jwtToken: IdToken
       }
     };
-
-    const expMoment = moment()
-      .add((+ExpiresIn - 600) / 60, 'minutes')
-      .format('YYYY-MM-DD HH:mm');
-    session.loggedUser.expMoment = expMoment;
-    store.dispatch(updateLoggedUser(session));
+    handleSession(session);
     failedRequest.response.config.headers['Authorization'] = 'Bearer ' + AccessToken;
     return Promise.resolve();
   });
 };
 
-export const setTokenRenewInterceptor = axiosInstance => {
-  createAuthRefreshInterceptor(axiosInstance, refreshAuthLogic, {
-    statusCodes: [401, 403] // default: [ 401 ]
-  });
+*/
 
-  const getAccessToken = () => {
-    const sessionUser = storage.getUserSession();
-    if (sessionUser !== null) {
-      const { accessToken } = sessionUser.data;
-      return accessToken.jwtToken;
-    }
-    return null;
-  };
+export const setTokenRenewInterceptor = axiosInstance => {
+  // token refresh method call
+  // createAuthRefreshInterceptor(axiosInstance, refreshAuthLogic, {
+  //   statusCodes: [401, 403]
+  // });
+
+
 
   // Obtain the fresh token each time the function is called
   function getIdToken() {
@@ -92,12 +84,7 @@ export const setTokenRenewInterceptor = axiosInstance => {
 
   // Use interceptor to inject the token to requests
   axiosInstance.interceptors.request.use(request => {
-    // if(request.url.includes('user/logout')){
-    //   if (getAccessToken() && request.headers['Authorization'])
-    //     request.headers['Authorization'] = `Bearer ${getAccessToken()}`;
-    // }else{
     if (getIdToken() && request.headers['Authorization']) request.headers['Authorization'] = `Bearer ${getIdToken()}`;
-    // }
     return request;
   });
 };

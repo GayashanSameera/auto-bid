@@ -5,13 +5,18 @@ import {
     requestLogedOutSuccess,
     logoutFailed
 } from '../sclices/userSlice';
+import connectApi from '../middlewares/connectApi';
 
-export function* userVerify() {
+import { handleSession } from '../helpers/sessionHelper';
+
+export function* userVerify(data) {
     try {
-        //result = yield call ( )
-        // yield put ( authenticationSuccess (result))
+        const { payload } = data;
+        const result = yield call(connectApi.doLogin, payload);
+        yield put(authenticationSuccess(result.data));
+        handleSession({ loggedUser: result.data });
     } catch (error) {
-        // yield put ( authenticationFailed (error))
+        yield put(authenticationFailed(error))
     }
 }
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import BrowserStorage from './storage';
 import config from '../configs';
 
 import { setTokenRenewInterceptor } from './axiosInterceptor';
@@ -49,25 +49,14 @@ const getIdToken = () => {
 
 const connectApi = {
     doLogin: data => {
-        const { payload, fromLogin } = data;
         return axios.post(
             `${userDomain}${prefix}${userVersion}/user/verify`,
             {
-                ...payload,
-                fromLogin
+                ...data
             },
             { skipAuthRefresh: true }
         );
-    },
-
-    doLogout: data => {
-        const { payload } = data;
-        return axios.post(
-            `${userDomain}${prefix}${userVersion}/user/logout`,
-            { ...payload, accessToken: getAccessToken() },
-            { headers: getIdToken() }
-        );
-    },
+    }
 };
 
 export default connectApi;
