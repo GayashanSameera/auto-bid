@@ -7,7 +7,7 @@ import {
 } from '../sclices/userSlice';
 import connectApi from '../middlewares/connectApi';
 
-import { handleSession } from '../helpers/sessionHelper';
+import { handleSession, clearSession } from '../helpers/sessionHelper';
 
 export function* userVerify(data) {
     try {
@@ -15,17 +15,21 @@ export function* userVerify(data) {
         const result = yield call(connectApi.doLogin, payload);
         yield put(authenticationSuccess(result.data));
         handleSession(result.data);
+
     } catch (error) {
+        console.log('error', error);
         yield put(authenticationFailed(error))
     }
 }
 
-export function* userLoggedOut() {
+export function* userLoggedOut(data) {
     try {
         //result = yield call ( )
-        // yield put ( requestLogedOutSuccess (result))
+
+        yield put(requestLogedOutSuccess())
+        clearSession(null);
     } catch (error) {
-        // yield put ( logoutFailed (error))
+        yield put(logoutFailed(error))
     }
 }
 
