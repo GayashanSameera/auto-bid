@@ -21,8 +21,8 @@ export default function HeaderComponent(props) {
                     <Menu.Item key={"2"} className="menu-item"><Link href="/pricing"><a>Pricing</a></Link></Menu.Item>
                     <Menu.Item key={"3"} className="menu-item"><Link href="/about"><a>About</a></Link></Menu.Item>
                     <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
-                    <Menu.Item key={"4"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
-                    <Menu.Item key={"5"} disabled={true} className="menu-item">
+                    <Menu.Item key={"5"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
+                    <Menu.Item key={"6"} disabled={true} className="menu-item">
                         <Button type="primary" shape="round" onClick={() => { console.log("object"); }} >
                             Login
                         </Button>
