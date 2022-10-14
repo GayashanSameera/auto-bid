@@ -57,6 +57,7 @@ const connectApi = {
             },
             {
                 skipAuthRefresh: true,
+            }
         );
     }
 };
