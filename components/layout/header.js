@@ -1,28 +1,37 @@
 import React from 'react';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from 'next/image';
 import { Layout, Menu, Button } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/router';
 
 import './header.module.css';
 
 import { LoginModal } from '../modals/loginModal';
 import {
     requestAuthentication,
-    authenticationSuccess,
-    authenticationFailed,
-    requestLogedOut,
-    requestLogedOutSuccess,
-    logoutFailed
+    requestLogedOut
 } from '../../sclices/userSlice';
 
 const { Header } = Layout;
 
 export default function HeaderComponent(props) {
+    const { session = null } = props;
+    const dispatch = useDispatch();
+    const router = useRouter();
+
     const [isLoginModalOpen, LoginModalOpenStateChange] = useState(false);
 
-    const dispatch = useDispatch();
+    const isAuthenticating = useSelector(state => state.user.isAuthenticating);
+
+    useEffect(() => {
+        if (!isAuthenticating) {
+            console.log('isAuthenticating', isAuthenticating);
+            LoginModalOpenStateChange(false)
+            router.push("/dashboad");
+        }
+    }, [isAuthenticating]);
 
     const requestVerify = (data) => {
         dispatch(requestAuthentication(data));
@@ -32,10 +41,15 @@ export default function HeaderComponent(props) {
         LoginModalOpenStateChange(!isLoginModalOpen)
     }
 
+    const clickOnLogout = (event) => {
+        dispatch(requestLogedOut())
+        props.router.replace('/')
+    }
+
     const closeLoginModal = () => {
         LoginModalOpenStateChange(false)
     }
-
+    console.log('session', session);
     return (
         <Header className="clearfix">
             <div className="logo"><Image src="/Final-AutoBid-360-Logo.svg" alt="Vercel Logo" width={170} height={70} /></div>
@@ -52,13 +66,13 @@ export default function HeaderComponent(props) {
                     <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
                     <Menu.Item key={"5"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
                     <Menu.Item key={"6"} disabled={true} className="menu-item">
-                        <Button type="primary" shape="round" onClick={() => { clickOnLogin(true) }} >
-                            Login
+                        <Button type="primary" shape="round" onClick={() => { session ? clickOnLogout(true) : clickOnLogin(true) }} >
+                            <span>{session ? 'Log-out' : 'Log-in'}</span>
                         </Button>
                     </Menu.Item>
                 </Menu>
             </div>
-            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} />
+            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} isAuthenticating={isAuthenticating} />
         </Header>
     );
 }

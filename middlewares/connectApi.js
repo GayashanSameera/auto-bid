@@ -54,7 +54,9 @@ const connectApi = {
             {
                 ...data
             },
-            { skipAuthRefresh: true }
+            {
+                skipAuthRefresh: true,
+            }
         );
     }
 };

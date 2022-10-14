@@ -5,9 +5,9 @@ module.exports = {
     env: 'dev',
     api: {
         domains: {
-            user: 'http://localhost:3000/',// sample data
+            user: 'http://localhost:3000/',
         },
-        prefix: 'api/dev/auto-bid',// sample data
+        prefix: 'api/dev/auto-bid',
         apiVersion: {
             user: '/v1'// sample data
         }
