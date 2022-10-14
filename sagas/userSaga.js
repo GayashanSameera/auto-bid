@@ -14,7 +14,7 @@ export function* userVerify(data) {
         const { payload } = data;
         const result = yield call(connectApi.doLogin, payload);
         yield put(authenticationSuccess(result.data));
-        handleSession({ loggedUser: result.data });
+        handleSession(result.data);
     } catch (error) {
         yield put(authenticationFailed(error))
     }

@@ -75,6 +75,7 @@ export const setTokenRenewInterceptor = axiosInstance => {
   // Obtain the fresh token each time the function is called
   function getIdToken() {
     const sessionUser = storage.getUserSession();
+    console.log('sessionUser', sessionUser);
     if (sessionUser !== null && sessionUser) {
       const { jwtToken } = sessionUser.loggedUser;
       return jwtToken;
@@ -84,6 +85,7 @@ export const setTokenRenewInterceptor = axiosInstance => {
 
   // Use interceptor to inject the token to requests
   axiosInstance.interceptors.request.use(request => {
+    console.log('id token', getIdToken());
     if (getIdToken() && request.headers['Authorization']) request.headers['Authorization'] = `Bearer ${getIdToken()}`;
     return request;
   });
