@@ -34,9 +34,9 @@ export default function LayoutWrapper(props) {
                     >
                         {resolvedPaths.length ?
                             resolvedPaths.map((item) => (
-                                <Breadcrumb.Item>{item}</Breadcrumb.Item>
+                                <Breadcrumb.Item key={item}>{item}</Breadcrumb.Item>
                             ))
-                            : (<Breadcrumb.Item>Home</Breadcrumb.Item>)
+                            : (<Breadcrumb.Item key={'home'}>Home</Breadcrumb.Item>)
                         }
                     </Breadcrumb>
                     <div className="site-layout-content">{props.children}</div>
