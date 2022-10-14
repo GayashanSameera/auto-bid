@@ -2,11 +2,12 @@ import { Modal, Row, Button } from 'antd';
 import { Field, Formik, Form } from "formik";
 
 import { InputField } from '../formFields';
+import Spinner from '../spinners';
 
 import styles from './loginModal.module.css';
 
 export const LoginModal = (props) => {
-    const { show, closeLoginModal, requestVerify } = props;
+    const { show, closeLoginModal, requestVerify, isAuthenticating } = props;
 
     return (
         <Modal
@@ -46,7 +47,7 @@ export const LoginModal = (props) => {
 
                             <Row className={styles.labelRow}>
                                 <Button type="primary" htmlType="submit">
-                                    Submit
+                                    {isAuthenticating ? (<><Spinner /> Submitting ....</>) : "Submit"}
                                 </Button>
                             </Row>
                         </Form>

@@ -24,6 +24,14 @@ export default function HeaderComponent(props) {
 
     const dispatch = useDispatch();
 
+    const isAuthenticating = useSelector(state => state.user.isAuthenticating);
+
+    useEffect(() => {
+        if (!isAuthenticating) {
+            LoginModalOpenStateChange(false)
+        }
+    }, [isAuthenticating]);
+
     const requestVerify = (data) => {
         dispatch(requestAuthentication(data));
     }
@@ -58,7 +66,7 @@ export default function HeaderComponent(props) {
                     </Menu.Item>
                 </Menu>
             </div>
-            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} />
+            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} isAuthenticating={isAuthenticating} />
         </Header>
     );
 }

@@ -5,9 +5,9 @@ module.exports = {
     env: 'dev',
     api: {
         domains: {
-            user: 'http://localhost:3000/',// sample data
+            user: 'https://kobe-development.syncbridge.net/',
         },
-        prefix: 'api/dev/auto-bid',// sample data
+        prefix: 'api',
         apiVersion: {
             user: '/v1'// sample data
         }

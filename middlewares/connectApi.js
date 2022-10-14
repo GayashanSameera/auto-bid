@@ -50,11 +50,13 @@ const getIdToken = () => {
 const connectApi = {
     doLogin: data => {
         return axios.post(
-            `${userDomain}${prefix}${userVersion}/user/verify`,
+            // `${userDomain}${prefix}${userVersion}/user/verify`, api i should include api verion and stage
+            `${userDomain}${prefix}/login`,
             {
                 ...data
             },
-            { skipAuthRefresh: true }
+            {
+                skipAuthRefresh: true,
         );
     }
 };
