@@ -9,7 +9,14 @@ export const LoginModal = (props) => {
             maskClosable={false}
             onCancel={closeLoginModal}
         >
-            <div>login</div>
+            <div>
+                <Row>
+                    <h1>Login</h1>
+                </Row>
+                <Row>
+                    <p>If you have an account, sign in with your email address.</p>
+                </Row>
+            </div>
         </Modal>
     );
 
