@@ -28,7 +28,7 @@ export default function LayoutWrapper(props) {
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className="site-layout-content">content{props.children}</div>
+                    <div className="site-layout-content">{props.children}</div>
                 </Content>
                 <FooterComponent />
             </Layout>

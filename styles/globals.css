@@ -1,9 +1,26 @@
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  color: rgba(255, 255, 255, 0.65);
+  background: #000;
+  height: 90px;
+  font-size: 1rem;
+}
+.ant-layout-header {
+  background: #000;
+  height: 90px;
+}
+
 .logo {
+  /* position: relative;
+    float: left;
+    text-decoration: none;
+    color: #333333; */
+  
+  z-index: 2;
   float: left;
-  width: 120px;
-  height: 31px;
+  width: 220px;
+  height: 50px;
   margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  /* background: rgb(255, 255, 255);  */
 }
 
 .ant-row-rtl .logo {
@@ -18,14 +35,23 @@
 }
 
 .Header-content {
-  float: right
+  padding-left: 30%;
+}
+
+.menu-item {
+  margin-left: 20px;
+  width: 5%;
 }
 
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
-  background-color: #141414;
+  background-color: #000;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: #000;
 }
 
 
   [data-theme="dark"] .site-layout-content {
-    background: #141414;
+    background: #000;
   }
