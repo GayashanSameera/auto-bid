@@ -8,17 +8,18 @@ import {
 import connectApi from '../middlewares/connectApi';
 
 import { handleSession, clearSession } from '../helpers/sessionHelper';
-
+import NotificationHelper from '../helpers/notificationHelper';
 export function* userVerify(data) {
     try {
         const { payload } = data;
         const result = yield call(connectApi.doLogin, payload);
         yield put(authenticationSuccess(result.data));
         handleSession(result.data);
-
+        NotificationHelper.getInstance().success("Successfully Loged in.");
     } catch (error) {
         console.log('error', error);
-        yield put(authenticationFailed(error))
+        yield put(authenticationFailed(error));
+        NotificationHelper.getInstance().error("Login Failed !");
     }
 }
 

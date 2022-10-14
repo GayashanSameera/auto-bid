@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from 'next/image';
 import { Layout, Menu, Button } from 'antd';
@@ -11,11 +11,7 @@ import './header.module.css';
 import { LoginModal } from '../modals/loginModal';
 import {
     requestAuthentication,
-    authenticationSuccess,
-    authenticationFailed,
-    requestLogedOut,
-    requestLogedOutSuccess,
-    logoutFailed
+    requestLogedOut
 } from '../../sclices/userSlice';
 
 const { Header } = Layout;
@@ -47,7 +43,7 @@ export default function HeaderComponent(props) {
 
     const clickOnLogout = (event) => {
         dispatch(requestLogedOut())
-        props.router.reload()
+        props.router.replace('/')
     }
 
     const closeLoginModal = () => {
