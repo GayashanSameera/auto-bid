@@ -3,20 +3,32 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from 'next/image';
 import { Layout, Menu, Button } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
 
 import './header.module.css';
 
 import { LoginModal } from '../modals/loginModal';
+import {
+    requestAuthentication,
+    authenticationSuccess,
+    authenticationFailed,
+    requestLogedOut,
+    requestLogedOutSuccess,
+    logoutFailed
+} from '../../sclices/userSlice';
 
 const { Header } = Layout;
 
 export default function HeaderComponent(props) {
     const [isLoginModalOpen, LoginModalOpenStateChange] = useState(false);
 
+    const dispatch = useDispatch();
 
+    const requestVerify = (data) => {
+        dispatch(requestAuthentication(data));
+    }
 
     const clickOnLogin = (event) => {
-        console.log('event', event);
         LoginModalOpenStateChange(!isLoginModalOpen)
     }
 
@@ -46,7 +58,7 @@ export default function HeaderComponent(props) {
                     </Menu.Item>
                 </Menu>
             </div>
-            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} />
+            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} />
         </Header>
     );
 }

@@ -6,7 +6,7 @@ import { InputField } from '../formFields';
 import styles from './loginModal.module.css';
 
 export const LoginModal = (props) => {
-    const { show, closeLoginModal } = props;
+    const { show, closeLoginModal, requestVerify } = props;
 
     return (
         <Modal
@@ -24,9 +24,9 @@ export const LoginModal = (props) => {
                     <span>If you have an account, sign in with your email address.</span>
                 </Row>
                 <Formik
-                    initialValues={{ email: null, password: null }}
+                    initialValues={{ email: '', password: '' }}
                     onSubmit={(values, actions) => {
-                        console.log('values', values);
+                        requestVerify(values);
                     }}
                 >
                     {(props) => (

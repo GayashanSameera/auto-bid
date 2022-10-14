@@ -19,28 +19,12 @@ class BrowserStorage {
   }
 
   getUserSession() {
-    const session = this.getSession('tpip_user_session');
+    const session = this.getSession('auto-bid');
     return session;
   }
 
   setUserSession(session) {
-    this.addToSession('tpip_user_session', session);
-  }
-
-  getAdminClaimsSession() {
-    const session = this.getSession('tpip_admin_claims_session');
-    return session;
-  }
-
-  setAdminClaimSession(session) {
-    this.addToSession('tpip_admin_claims_session', session);
-  }
-
-  getAdminClaims() {
-    const session = this.getAdminClaimsSession();
-    if (session == null) return null;
-
-    return session;
+    this.addToSession('auto-bid', session);
   }
 
   getLoggedUser() {
