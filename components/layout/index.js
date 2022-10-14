@@ -3,12 +3,15 @@ import { Breadcrumb, Layout, Menu } from 'antd';
 
 import HeaderComponent from "./header";
 import FooterComponent from './footer';
-
+import { getResolvedPaths } from '../../helpers/routingPathHelper';
 import 'antd/dist/antd.css';
 
 const { Content, Footer } = Layout;
 
 export default function LayoutWrapper(props) {
+
+    const { router } = props;
+    const resolvedPaths = getResolvedPaths(router);
 
     return (
         <>
@@ -24,9 +27,12 @@ export default function LayoutWrapper(props) {
                             margin: '16px 0',
                         }}
                     >
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
+                        {resolvedPaths.length ?
+                            resolvedPaths.map((item) => (
+                                <Breadcrumb.Item>{item}</Breadcrumb.Item>
+                            ))
+                            : (<Breadcrumb.Item>Home</Breadcrumb.Item>)
+                        }
                     </Breadcrumb>
                     <div className="site-layout-content">{props.children}</div>
                 </Content>

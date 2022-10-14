@@ -14,3 +14,13 @@ export const getResolvedFinalPath = (routeObject) => {
         return "";
     }
 }
+
+export const getResolvedPaths = (routeObject) => {
+    if (routeObject.asPath) {
+        const routeArray = routeObject.asPath.split("/") || [];
+        const filteredRouteArray = routeArray.filter(i => i !== "");
+        return filteredRouteArray;
+    } else {
+        return [];
+    }
+}
