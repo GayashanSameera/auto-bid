@@ -4,8 +4,6 @@ import config from '../configs';
 
 export default function Home() {
 
-  console.log('env===', process.env.a);
-  console.log('config===', process.env.a);
   return (
     <div>
       <Head>
