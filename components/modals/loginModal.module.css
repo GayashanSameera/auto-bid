@@ -1,24 +1,44 @@
-.loginModal{
-    margin-top: 200px;
-}
 
 .loginHeader {
     color: #000;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 800;
+}
+
+.margin_tiny {
+    margin-bottom: 0.25rem;
+    
+}
+
+.description{
+    font-size: 1rem;
+    color: rgb(65, 64, 64);
 }
 
 .loginLabel {
     margin-top: 0rem;
     margin-bottom: 0rem;
-    font-size: 1rem;
-    line-height: 1.2;
+    font-size: 1.2rem;
+    line-height: 2rem;
     font-weight: 500;
+    color: rgb(65, 64, 64);
 }
 .labelRow {
     padding-top: 15px;
     padding-bottom: 5px;
+}
+
+.lgim {
+    border-radius: 30px;
+  }
+
+.modal_content {
+    padding: 30px;
+}
+
+.loginButton{
+    
 }
