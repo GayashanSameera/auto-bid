@@ -27,13 +27,25 @@ export const getResolvedPaths = (routeObject) => {
     }
 }
 
-export const validateRoutes = (routeObject, session) => {
+export const checkPrivateRoute = (routeObject) => {
 
     if (routeObject.asPath) {
         const routeArray = routeObject.asPath.split("/") || [];
         const filteredRouteArray = routeArray.filter(i => i !== "");
 
         const isPrivateRoute = filteredRouteArray.find(r => PRIVATE_ROUTE_BASES.includes(r));
+
+        if (isPrivateRoute) return true;
+        return false;
+    } else {
+        return false;
+    }
+}
+
+export const validateRoutes = (routeObject, session) => {
+
+    if (routeObject.asPath) {
+        const isPrivateRoute = checkPrivateRoute(routeObject);
 
         if (isPrivateRoute && session && session.email) {
             return true
@@ -44,3 +56,4 @@ export const validateRoutes = (routeObject, session) => {
         return [];
     }
 }
+

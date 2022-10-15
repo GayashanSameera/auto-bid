@@ -13,6 +13,7 @@ import {
     requestAuthentication,
     requestLogedOut
 } from '../../sclices/userSlice';
+import { checkPrivateRoute } from '../../helpers/routingPathHelper';
 
 const { Header } = Layout;
 
@@ -22,37 +23,52 @@ export default function HeaderComponent(props) {
     const router = useRouter();
 
     const [isLoginModalOpen, LoginModalOpenStateChange] = useState(false);
+    const [isLogedin, isLogedinChange] = useState(false);
 
     const isAuthenticating = useSelector(state => state.user.isAuthenticating);
 
     useEffect(() => {
         if (!isAuthenticating) {
-            console.log('isAuthenticating', isAuthenticating);
-            LoginModalOpenStateChange(false)
-            router.push("/dashboad");
+
+            LoginModalOpenStateChange(false);
+            if (!checkPrivateRoute(router) && !session) {
+                router.push("/dashboad");
+            }
+
         }
     }, [isAuthenticating]);
+
+    useEffect(() => {
+        if (session) {
+            isLogedinChange(true);
+        } else {
+            isLogedinChange(false);
+        }
+
+    }, [session])
 
     const requestVerify = (data) => {
         dispatch(requestAuthentication(data));
     }
 
     const clickOnLogin = (event) => {
-        LoginModalOpenStateChange(!isLoginModalOpen)
+        LoginModalOpenStateChange(!isLoginModalOpen);
     }
 
     const clickOnLogout = (event) => {
-        dispatch(requestLogedOut())
-        props.router.replace('/')
+        dispatch(requestLogedOut());
+        props.router.replace('/');
     }
 
     const closeLoginModal = () => {
-        LoginModalOpenStateChange(false)
+        LoginModalOpenStateChange(false);
     }
-    console.log('session', session);
+
     return (
         <Header className="clearfix">
-            <div className="logo"><Image src="/Final-AutoBid-360-Logo.svg" alt="Vercel Logo" width={170} height={70} /></div>
+            <div className="logo">
+                <Image src="/Final-AutoBid-360-Logo.svg" alt="Vercel Logo" width={170} height={70} />
+            </div>
             <div className="Header-content">
                 <Menu
                     theme="dark"
@@ -66,13 +82,18 @@ export default function HeaderComponent(props) {
                     <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
                     <Menu.Item key={"5"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
                     <Menu.Item key={"6"} disabled={true} className="menu-item">
-                        <Button type="primary" shape="round" onClick={() => { session ? clickOnLogout(true) : clickOnLogin(true) }} >
-                            <span>{session ? 'Log-out' : 'Log-in'}</span>
+                        <Button type="primary" shape="round" onClick={() => { isLogedin ? clickOnLogout(true) : clickOnLogin(true) }} >
+                            <span>{isLogedin ? 'Log-out' : 'Log-in'}</span>
                         </Button>
                     </Menu.Item>
                 </Menu>
             </div>
-            <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} isAuthenticating={isAuthenticating} />
+            {
+                isLoginModalOpen && (
+                    <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} isAuthenticating={isAuthenticating} />
+                )
+            }
+
         </Header>
     );
 }
