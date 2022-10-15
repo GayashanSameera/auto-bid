@@ -71,6 +71,38 @@ export default function HeaderComponent(props) {
                     data-easing2="ease-in-out"
                     className={`${styles.nav_component}  ${styles.w_nav}`}
                 >
+                    {isLogedin ? (
+                        <div className={`${styles.page_padding} ${styles.is_top_nav}`}>
+                            <div className={styles.nav_top_content}>
+                                <div className={styles.nav_top_link_wrapper}>
+                                    <div className={styles.credit_limit_wrapper}>
+                                        <p className={styles.credit_limit_text}>Credit Limit</p>
+                                        <p className={styles.credit_limit_value}>YEN -1,000,000</p>
+                                    </div>
+                                    <div className={styles.nav_top_link}>
+                                        <Link href="/pricing">
+                                            <a className={styles.top_link}>Pricing</a>
+                                        </Link>
+
+                                        <div className={styles.separator}></div>
+                                        <Link href="/about">
+                                            <span className={styles.top_link}>About</span>
+                                        </Link>
+
+                                        <div className={styles.separator}></div>
+                                        <Link href="/contact">
+                                            <span className={styles.top_link}>Contact</span>
+                                        </Link>
+
+                                        <div className={styles.separator}></div>
+                                        <Link href="/help">
+                                            <span className={styles.top_link}>Help</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : null}
                     <div className={styles.page_padding}>
                         <div className={styles.nav_container}>
                             <a href="#" className={`${styles.nav_logo_link}  ${styles.w_nav_brand}`}>
@@ -91,35 +123,31 @@ export default function HeaderComponent(props) {
                                                 Home
                                             </a>
                                         </Link>
-                                        {
-                                            isLogedin ? (
-
-                                                <>
-                                                    <Link href="/auctions">
-                                                        <a
-                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
-                                                        >
-                                                            Actions
-                                                        </a>
-                                                    </Link>
-                                                    <Link href="/mybids">
-                                                        <a
-                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
-                                                        >
-                                                            My Bids
-                                                        </a>
-                                                    </Link>
-                                                    <Link href="/myorders">
-                                                        <a
-                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
-                                                        >
-                                                            My Orders
-                                                        </a>
-                                                    </Link>
-
-                                                </>
-                                            ) : (
-
+                                        {isLogedin ? (
+                                            <>
+                                                <Link href="/auctions">
+                                                    <a
+                                                        className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                    >
+                                                        Actions
+                                                    </a>
+                                                </Link>
+                                                <Link href="/mybids">
+                                                    <a
+                                                        className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                    >
+                                                        My Bids
+                                                    </a>
+                                                </Link>
+                                                <Link href="/myorders">
+                                                    <a
+                                                        className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                    >
+                                                        My Orders
+                                                    </a>
+                                                </Link>
+                                            </>
+                                        ) : (
                                                 <>
                                                     <Link href="/pricing">
                                                         <a
@@ -142,11 +170,8 @@ export default function HeaderComponent(props) {
                                                             Contact
                                                         </a>
                                                     </Link>
-
                                                 </>
-                                            )
-                                        }
-
+                                        )}
 
                                         <Link href="/help">
                                             <a
