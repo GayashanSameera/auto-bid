@@ -1,40 +1,33 @@
-import React from 'react';
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from 'next/image';
-import { Layout, Menu, Button } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
-import './header.module.css';
+import styles from "./header.module.css";
+import { DownOutlined, UpOutlined } from "@ant-design/icons";
 
-import { LoginModal } from '../modals/loginModal';
-import {
-    requestAuthentication,
-    requestLogedOut
-} from '../../sclices/userSlice';
-import { checkPrivateRoute } from '../../helpers/routingPathHelper';
-
-const { Header } = Layout;
+import { LoginModal } from "../modals/loginModal";
+import { requestAuthentication, requestLogedOut } from "../../sclices/userSlice";
+import { checkPrivateRoute } from "../../helpers/routingPathHelper";
 
 export default function HeaderComponent(props) {
     const { session = null } = props;
     const dispatch = useDispatch();
     const router = useRouter();
 
+    const [isToggleOpen, changeToggleOpen] = useState(false);
+    const [selectedLanguage, changeSelectedLanguage] = useState("English");
     const [isLoginModalOpen, LoginModalOpenStateChange] = useState(false);
     const [isLogedin, isLogedinChange] = useState(false);
 
-    const isAuthenticating = useSelector(state => state.user.isAuthenticating);
+    const isAuthenticating = useSelector((state) => state.user.isAuthenticating);
 
     useEffect(() => {
         if (!isAuthenticating) {
-
             LoginModalOpenStateChange(false);
             if (!checkPrivateRoute(router) && !session) {
                 router.push("/dashboad");
             }
-
         }
     }, [isAuthenticating]);
 
@@ -44,56 +37,223 @@ export default function HeaderComponent(props) {
         } else {
             isLogedinChange(false);
         }
-
-    }, [session])
+    }, [session]);
 
     const requestVerify = (data) => {
         dispatch(requestAuthentication(data));
-    }
+    };
 
     const clickOnLogin = (event) => {
         LoginModalOpenStateChange(!isLoginModalOpen);
-    }
+    };
 
     const clickOnLogout = (event) => {
         dispatch(requestLogedOut());
-        props.router.replace('/');
-    }
+        props.router.replace("/");
+    };
 
     const closeLoginModal = () => {
         LoginModalOpenStateChange(false);
-    }
+    };
+
+    const languageTogal = () => {
+        changeToggleOpen(!isToggleOpen);
+    };
 
     return (
-        <Header className="clearfix">
-            <div className="logo">
-                <Image src="/Final-AutoBid-360-Logo.svg" alt="Vercel Logo" width={170} height={70} />
-            </div>
-            <div className="Header-content">
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    defaultSelectedKeys={['2']}
-
+        <div className={styles.pageWrapper}>
+            <div className="nav">
+                <div
+                    data-collapse="medium"
+                    data-animation="default"
+                    data-duration="200"
+                    data-easing="ease-in-out"
+                    data-easing2="ease-in-out"
+                    className={`${styles.nav_component}  ${styles.w_nav}`}
                 >
-                    <Menu.Item key={"1"} className="menu-item"><Link href="/"><a>Home</a></Link></Menu.Item>
-                    <Menu.Item key={"2"} className="menu-item"><Link href="/pricing"><a>Pricing</a></Link></Menu.Item>
-                    <Menu.Item key={"3"} className="menu-item"><Link href="/about"><a>About</a></Link></Menu.Item>
-                    <Menu.Item key={"4"} className="menu-item"><Link href="/contact"><a>Contact</a></Link></Menu.Item>
-                    <Menu.Item key={"5"} className="menu-item"><Link href="/help"><a>Help</a></Link></Menu.Item>
-                    <Menu.Item key={"6"} disabled={true} className="menu-item">
-                        <Button type="primary" shape="round" onClick={() => { isLogedin ? clickOnLogout(true) : clickOnLogin(true) }} >
-                            <span>{isLogedin ? 'Log-out' : 'Log-in'}</span>
-                        </Button>
-                    </Menu.Item>
-                </Menu>
-            </div>
-            {
-                isLoginModalOpen && (
-                    <LoginModal show={isLoginModalOpen} closeLoginModal={closeLoginModal} requestVerify={requestVerify} isAuthenticating={isAuthenticating} />
-                )
-            }
+                    <div className={styles.page_padding}>
+                        <div className={styles.nav_container}>
+                            <a href="#" className={`${styles.nav_logo_link}  ${styles.w_nav_brand}`}>
+                                <img
+                                    src="/Final-AutoBid-360-Logo.svg"
+                                    loading="lazy"
+                                    alt=""
+                                    className={styles.nav_logo}
+                                />
+                            </a>
+                            <nav className={`${styles.nav_menu}  ${styles.w_nav_menu}`}>
+                                <div className={styles.nav_link_wrapper}>
+                                    <div className={styles.nav_link_list}>
+                                        <Link href="/">
+                                            <a
+                                                className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                            >
+                                                Home
+                                            </a>
+                                        </Link>
+                                        {
+                                            isLogedin ? (
 
-        </Header>
+                                                <>
+                                                    <Link href="/auctions">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            Actions
+                                                        </a>
+                                                    </Link>
+                                                    <Link href="/mybids">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            My Bids
+                                                        </a>
+                                                    </Link>
+                                                    <Link href="/myorders">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            My Orders
+                                                        </a>
+                                                    </Link>
+
+                                                </>
+                                            ) : (
+
+                                                <>
+                                                    <Link href="/pricing">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            Pricing
+                                                        </a>
+                                                    </Link>
+                                                    <Link href="/about">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            About
+                                                        </a>
+                                                    </Link>
+                                                    <Link href="/contact">
+                                                        <a
+                                                            className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                                        >
+                                                            Contact
+                                                        </a>
+                                                    </Link>
+
+                                                </>
+                                            )
+                                        }
+
+
+                                        <Link href="/help">
+                                            <a
+                                                className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
+                                            >
+                                                Help
+                                            </a>
+                                        </Link>
+                                    </div>
+                                    <div className={`${styles.nav_link_list}  ${styles.is_last}`}>
+                                        <div
+                                            data-hover="false"
+                                            data-delay="0"
+                                            className={`${styles.nav_dropdown_2}  ${styles.padding_right} ${styles.padding_small} ${styles.w_dropdown}`}
+                                            class="  padding-small w-dropdown"
+                                        >
+                                            <div
+                                                className={`${styles.nav_dropdown_toggle}  ${styles.w_dropdown_toggle}`}
+                                            >
+                                                <div className={styles.nav_label}> {selectedLanguage} </div>
+                                                <div
+                                                    className={`${styles.icon_2}  ${styles.w_icon_dropdown_toggle}`}
+                                                    onClick={() => {
+                                                        languageTogal();
+                                                    }}
+                                                >
+                                                    {isToggleOpen ? <UpOutlined /> : <DownOutlined />}
+                                                </div>
+                                            </div>
+                                            {isToggleOpen ? (
+                                                <nav
+                                                    className={`${styles.nav_drop_list_lang}  ${styles.w_dropdown_list}`}
+                                                >
+                                                    <div
+                                                        className={`${styles.deopdown_list_wrapper}  ${styles.is_product}`}
+                                                    >
+                                                        <div
+                                                            className={`${styles.deopdown_list_wrap}  ${styles.padding_small} ${styles.is_mobile}`}
+                                                        >
+                                                            <span
+                                                                className={`${styles.margin_bottom}  ${styles.margin_xsmall} ${styles.w_inline_block}`}
+                                                            >
+                                                                <p
+                                                                    className={`${styles.text_size_regular}  ${styles.text_color_white} ${styles.text_weight_normal} ${styles.is_lang}`}
+                                                                >
+                                                                    English
+                                                                </p>
+                                                            </span>
+                                                            <span
+                                                                className={`${styles.margin_bottom}  ${styles.margin_xsmall} ${styles.w_inline_block}`}
+                                                            >
+                                                                <p
+                                                                    className={`${styles.text_size_regular}  ${styles.text_color_white}  ${styles.is_lang}`}
+                                                                >
+                                                                    Japanese
+                                                                </p>
+                                                            </span>
+                                                            <span
+                                                                className={`${styles.margin_bottom}  ${styles.margin_xsmall} ${styles.w_inline_block}`}
+                                                            >
+                                                                <p
+                                                                    className={`${styles.text_size_regular}  ${styles.text_color_white}  ${styles.is_lang}`}
+                                                                >
+                                                                    Arabic
+                                                                </p>
+                                                            </span>
+                                                            <span className={styles.w_inline_block}>
+                                                                <p
+                                                                    className={`${styles.text_size_regular}  ${styles.text_color_white}  ${styles.is_lang}`}
+                                                                >
+                                                                    Spanish
+                                                                </p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </nav>
+                                            ) : null}
+                                        </div>
+                                        <span
+                                            className={`
+                                            ${styles.button_secondary}  
+                                        ${styles.is_button_small}  
+                                        ${styles.is_button_gold} 
+                                        ${styles.is_nev_button} 
+                                        ${styles.w_button}`}
+                                            onClick={() => {
+                                                isLogedin ? clickOnLogout(true) : clickOnLogin(true);
+                                            }}
+                                        >
+                                            {isLogedin ? "Logout" : "Login"}
+                                        </span>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {isLoginModalOpen && (
+                <LoginModal
+                    show={isLoginModalOpen}
+                    closeLoginModal={closeLoginModal}
+                    requestVerify={requestVerify}
+                    isAuthenticating={isAuthenticating}
+                />
+            )}
+        </div>
     );
 }
+//
