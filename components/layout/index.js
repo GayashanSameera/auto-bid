@@ -23,25 +23,7 @@ export default function LayoutWrapper(props) {
         <>
             <Layout>
                 <HeaderComponent session={session} router={router} />
-                <Content
-                    style={{
-                        padding: '0 50px',
-                    }}
-                >
-                    <Breadcrumb
-                        style={{
-                            margin: '16px 0',
-                        }}
-                    >
-                        {resolvedPaths.length ?
-                            resolvedPaths.map((item) => (
-                                <Breadcrumb.Item key={item}>{item}</Breadcrumb.Item>
-                            ))
-                            : (<Breadcrumb.Item key={'home'}>Home</Breadcrumb.Item>)
-                        }
-                    </Breadcrumb>
-                    <div className="site-layout-content">{props.children}</div>
-                </Content>
+                <div className="site-layout-content">{props.children}</div>
                 <FooterComponent />
             </Layout>
         </>
