@@ -60,3 +60,7 @@
     overflow: auto;
     border-radius: 24px
 }
+
+.site-layout-content{
+  margin-top: 9rem;
+}
