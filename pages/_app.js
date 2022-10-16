@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   const finalResolvedPath = getResolvedFinalPath(router);
   const session = getVerifiedSession();
   const resolvedPaths = getResolvedPaths(router);
-  console.log('session', session);
+
 
   return (
     <Provider store={store}>

@@ -1,0 +1,216 @@
+.section_component.is_my_order {
+    background-color: #f7f7f7;
+}
+.max_width_full {
+    width: 100%;
+    max-width: none;
+}
+
+.page_padding {
+    position: relative;
+    z-index: 99;
+    /* padding-right: 5%; */
+    padding-left: 5%;
+    -webkit-transition: color 200ms ease;
+    transition: color 200ms ease;
+}
+
+.page_padding.is_paddinf_left_zero {
+    padding-left: 0%;
+  }
+
+.page_padding.is_paddinf_left_zero.is_mobile {
+    /* padding-left: 5%; */
+}
+
+.margin_bottom.margin_xlarge {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+
+.w_layout_grid {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-columns: 1fr;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+  }
+
+.grid_2_column {
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+  }
+
+.grid_2_column.is_my_account {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 0rem;
+    grid-row-gap: 4rem;
+    -ms-grid-columns: 0.6fr 0.6fr;
+    grid-template-columns: 0.6fr 0.6fr;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+  }
+
+  .grid_2_column.is_summary {
+    grid-column-gap: 0.5rem;
+  }
+  
+  .grid_2_column.is_my_order_summary {
+    grid-column-gap: 2rem;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary_left {
+    position: relative;
+    width: 20%;
+    background-color: #fff;
+  }
+
+  .account_right {
+    width: 80%;
+    padding-left: 0px;
+    background-color: #fff;
+  }
+
+  .summary_card_wrapper {
+    padding: 1.5rem;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    background-color: #e5e5e5;
+  }
+  
+  .summary_card_wrapper.is_bottom {
+    background-color: #fff;
+  }
+
+  .links_card_wrapper {
+    padding: 3rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: #e5e5e5;
+  }
+  
+  .links_card_wrapper.is_bottom {
+    padding: 1.5rem;
+    background-color: #fff;
+  }
+  
+  .links_card_wrapper.is_middle {
+    padding: 1.5rem 1.5rem 0rem;
+    background-color: #fff;
+  }
+  
+  .margin_small {
+    margin: 1.5rem;
+  }
+
+  .margin_bottom.margin_small {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
+  }
+
+  .summary_details_wrapper {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+  }
+
+  .grid_row.is_summary_grid_container {
+    margin-bottom: 0.8rem;
+    padding-right: 1.5rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    border-bottom: 1px solid #c6c6c6;
+  }
+  
+  .grid_row.is_summary_grid_container.is_last {
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+    border-bottom-style: none;
+  }
+
+  .my_account_link_wrap {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+  }
+
+  .my_account_lick_wrapper {
+    margin-bottom: 0.8rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  
+  .my_account_lick_wrapper.is_last {
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+    border-bottom-style: none;
+  }
+
+  .link_wrapper {
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    color: #b4b4b4;
+  }
+  
+  .link_wrapper:hover {
+    color: #ffcb05;
+  }
+
+  .w_inline_block {
+    max-width: 100%;
+    display: inline-block;
+  }
+  .my_account_link {
+    font-size: 0.8rem;
+  }
+
+  .summary_title {
+    font-size: 0.8rem;
+  }
+
+  .summary_content_right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+
+  .summary_value {
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .summary_value.is_red {
+    color: #fc0000;
+  }
+
+  

@@ -14,15 +14,17 @@ export const LoginModal = (props) => {
             visible={show}
             footer={null}
             maskClosable={false}
+            centered
+            width="25%"
             onCancel={closeLoginModal}
-            className={styles.loginModal}
+            className={styles.lgim}
         >
-            <div>
-                <Row>
+            <div className={styles.modal_content}>
+                <Row className={styles.margin_tiny}>
                     <h1 className={styles.loginHeader}>Login</h1>
                 </Row>
                 <Row>
-                    <span>If you have an account, sign in with your email address.</span>
+                    <span className={styles.description}>If you have an account, sign in with your email address.</span>
                 </Row>
                 <Formik
                     initialValues={{ email: '', password: '' }}
@@ -46,8 +48,8 @@ export const LoginModal = (props) => {
                             </Row>
 
                             <Row className={styles.labelRow}>
-                                <Button type="primary" htmlType="submit">
-                                    {isAuthenticating ? (<><Spinner /> Submitting ....</>) : "Submit"}
+                                <Button type="primary" htmlType="submit" size="large" className={styles.loginButton}>
+                                    {isAuthenticating ? (<><Spinner /> Loging ....</>) : "Login"}
                                 </Button>
                             </Row>
                         </Form>
