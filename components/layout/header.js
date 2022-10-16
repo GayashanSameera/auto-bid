@@ -129,7 +129,7 @@ const HeaderComponent = (props) => {
                                         </Link>
                                         {isLogedin ? (
                                             <>
-                                                <Link href="/auctions">
+                                                <Link href="/auction">
                                                     <a
                                                         className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
                                                     >
