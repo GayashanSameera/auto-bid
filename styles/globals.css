@@ -31,7 +31,7 @@
 .site-layout-content {
   min-height: 280px;
   margin-top: 5.5rem;
-  padding-bottom: 24px;
+  /* padding-bottom: 24px; */
   background: #fff;
 }
 

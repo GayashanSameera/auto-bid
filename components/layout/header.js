@@ -26,7 +26,11 @@ export default function HeaderComponent(props) {
         if (!isAuthenticating) {
             LoginModalOpenStateChange(false);
             if (!checkPrivateRoute(router) && !session) {
-                router.push("/dashboad");
+                router.push({
+                    pathname: "/dashboad",
+                    //query: { component: 'init' }  // we can pass query params by adding this 
+                });
+
             }
         }
     }, [isAuthenticating]);

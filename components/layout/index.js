@@ -1,6 +1,6 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu } from 'antd';
-import { useEffect, useRef, useState } from "react";
+import { Layout } from 'antd';
+import { useEffect, useState } from "react";
 
 import HeaderComponent from "./header";
 
@@ -9,21 +9,33 @@ import { validateRoutes } from '../../helpers/routingPathHelper';
 
 import 'antd/dist/antd.css';
 
-const { Content, Footer } = Layout;
 
 export default function LayoutWrapper(props) {
 
-    const { router, resolvedPaths, session } = props;
+    const { router, session } = props;
+
+    const [isMorePadding, setMorePadding] = useState(false);
 
     useEffect(() => {
         validateRoutes(router, session);
     }, [router.asPath]);
 
+    useEffect(() => {
+        if (session) {
+            setMorePadding(true);
+        } else {
+            setMorePadding(false);
+        }
+
+    }, [session]);
+
     return (
         <>
             <Layout>
                 <HeaderComponent session={session} router={router} />
-                <div className={`site-layout-content ${session ? `extra-margin` : null}`}>{props.children}</div>
+                <div className={`site-layout-content ${isMorePadding ? `extra-margin` : null}`}>
+                    {props.children}
+                </div>
                 <FooterComponent />
             </Layout>
         </>
