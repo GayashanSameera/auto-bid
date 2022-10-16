@@ -10,7 +10,7 @@ import { LoginModal } from "../modals/loginModal";
 import { requestAuthentication, requestLogedOut } from "../../sclices/userSlice";
 import { checkPrivateRoute } from "../../helpers/routingPathHelper";
 
-export default function HeaderComponent(props) {
+const HeaderComponent = (props) => {
     const { session = null } = props;
     const dispatch = useDispatch();
     const router = useRouter();
@@ -285,4 +285,6 @@ export default function HeaderComponent(props) {
         </div>
     );
 }
-//
+
+
+export default HeaderComponent;

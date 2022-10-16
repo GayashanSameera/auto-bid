@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./dashboadWrapper.module.css";
 
-export default function DashboadWrapper(props) {
+const DashboadWrapper = (props) => {
     return (
         <>
             <div className={`${styles.section_component} ${styles.is_my_order}`}>
@@ -155,3 +155,5 @@ export default function DashboadWrapper(props) {
         </>
     );
 }
+
+export default DashboadWrapper;

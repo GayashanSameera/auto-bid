@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import SmallCard from "../../components/cards/smallCard";
+import { SmallCard } from "../../components/cards";
 
 const DetailContainer = (props) => {
     const { params, sampleDate } = props;

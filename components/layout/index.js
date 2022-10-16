@@ -10,7 +10,7 @@ import { validateRoutes } from '../../helpers/routingPathHelper';
 import 'antd/dist/antd.css';
 
 
-export default function LayoutWrapper(props) {
+const LayoutWrapper = (props) => {
 
     const { router, session } = props;
 
@@ -42,3 +42,5 @@ export default function LayoutWrapper(props) {
     )
 
 };
+
+export default LayoutWrapper;

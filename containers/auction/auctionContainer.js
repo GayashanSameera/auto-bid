@@ -1,9 +1,6 @@
-import { Card, Row } from 'antd';
-import Link from "next/link";
-import SmallCard from "../../components/cards/smallCard";
+import { Row } from 'antd';
+import { SmallCard } from "../../components/cards";
 import DetailContainer from "./detailContainer";
-
-const { Meta } = Card;
 
 const sampleDate = [
     {

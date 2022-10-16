@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Empty } from 'antd';
 
 import { InformationContainer, OutstandingStatement } from '../../containers/information';
-import DashboadWrapper from '../../components/wrappers/dashboadWrapper';
+import { DashboadWrapper } from '../../components/wrappers';
 
 export default function Dashboad(props) {
     const router = useRouter();

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const { Meta } = Card;
 
-export default function SmallCard(props) {
+const SmallCard = (props) => {
     const { item, onclickNavigate } = props;
 
     const content = (
@@ -31,3 +31,5 @@ export default function SmallCard(props) {
         </>
     );
 }
+
+export default SmallCard;

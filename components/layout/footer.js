@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import styles from "./footer.module.css";
 
-export default function FooterComponent(props) {
+const FooterComponent = (props) => {
     return (
         <footer className={`${styles.footer} ${styles.is_common}`} >
             <div className={`${styles.footer} ${styles.lightgrey}`} >
@@ -72,3 +72,5 @@ export default function FooterComponent(props) {
             </div>
         </footer>);
 };
+
+export default FooterComponent;
