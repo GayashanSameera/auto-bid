@@ -23,7 +23,7 @@ export default function LayoutWrapper(props) {
         <>
             <Layout>
                 <HeaderComponent session={session} router={router} />
-                <div className="site-layout-content">{props.children}</div>
+                <div className={`site-layout-content ${session ? `extra-margin` : null}`}>{props.children}</div>
                 <FooterComponent />
             </Layout>
         </>

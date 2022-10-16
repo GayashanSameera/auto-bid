@@ -30,7 +30,8 @@
 
 .site-layout-content {
   min-height: 280px;
-  padding: 24px;
+  margin-top: 5.5rem;
+  padding-bottom: 24px;
   background: #fff;
 }
 
@@ -61,6 +62,6 @@
     border-radius: 24px
 }
 
-.site-layout-content{
+.extra-margin {
   margin-top: 9rem;
 }
