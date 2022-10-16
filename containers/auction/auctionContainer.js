@@ -1,0 +1,49 @@
+import { Card, Row } from 'antd';
+import Link from "next/link";
+import SmallCard from "../../components/cards/smallCard";
+import DetailContainer from "./detailContainer";
+
+const { Meta } = Card;
+
+const sampleDate = [
+    {
+        id: "1",
+        title: "Europe Street beat 1",
+        description: "Japanese Auction",
+        src: "/Group-1837.png"
+    },
+    {
+        id: "2",
+        title: "Europe Street beat 2",
+        description: "Heavy Duty Machinery Auction",
+        src: "/Group-2072.png"
+    }
+]
+
+
+function AuctionContainer(props) {
+    const { params } = props;
+    return (
+        <>
+            {
+                !params.length ?
+                    (<Row>
+                        {
+                            sampleDate.map(item => (
+                                <SmallCard item={item} onclickNavigate={`/auction/auction-details/${item.id}`} />
+                            ))
+                        }
+                    </Row>)
+
+                    : params.includes('auction-details') ? (
+
+                        <DetailContainer params={params} sampleDate={sampleDate} />
+
+                    ) : null
+
+            }
+
+        </>
+    );
+}
+export default AuctionContainer;

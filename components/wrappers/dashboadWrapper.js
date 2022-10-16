@@ -98,14 +98,14 @@ export default function DashboadWrapper(props) {
                                         </div>
                                         <div className={styles.my_account_link_wrap}>
                                             <div className={styles.my_account_lick_wrapper}>
-                                                <Link href="/dashboad/update-information">
+                                                <Link href="/information">
                                                 <a className={`${styles.link_wrapper} ${styles.w_inline_block}`}>
                                                     <p className={styles.my_account_link}>Update Information</p>
                                                 </a>
                                                 </Link>
                                             </div>
                                             <div className={styles.my_account_lick_wrapper}>
-                                                <Link href="/dashboad/outstanding-statement">
+                                                <Link href="/information/outstanding-statement">
                                                 <a className={`${styles.link_wrapper} ${styles.w_inline_block}`}>
                                                     <p className={styles.my_account_link}>Outstanding Statement</p>
                                                 </a>

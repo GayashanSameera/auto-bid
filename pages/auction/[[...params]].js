@@ -1,25 +1,19 @@
 import { useRouter } from 'next/router';
 import { Empty } from 'antd';
 
-import DashboadContainer from '../../containers/dashboad';
-import InformationContainer from '../../containers/information/information';
+import { AuctionContainer } from '../../containers/auction';
 import DashboadWrapper from '../../components/wrappers/dashboadWrapper';
 
 export default function Dashboad(props) {
-
     const router = useRouter();
-
     const { params = [] } = router.query;
 
-    console.log('router', router);
-
+    console.log('params', params);
     return (
         <DashboadWrapper>
             {
-                !params.length ? (
-                    <DashboadContainer />
-                ) : params.includes("update-information") ? (
-                    <InformationContainer />
+                !params.length || (params.length && params.includes("auction-details")) ? (
+                    <AuctionContainer params={params} />
                 ) : (
                     <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
                 )

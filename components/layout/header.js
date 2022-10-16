@@ -27,7 +27,7 @@ export default function HeaderComponent(props) {
             LoginModalOpenStateChange(false);
             if (!checkPrivateRoute(router) && !session) {
                 router.push({
-                    pathname: "/dashboad",
+                    pathname: "/auction",
                     //query: { component: 'init' }  // we can pass query params by adding this 
                 });
 
