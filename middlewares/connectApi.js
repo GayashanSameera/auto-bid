@@ -57,7 +57,7 @@ const connectApi = {
             },
             {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data'  // if you are using application/json , don't need to add header section
                 }
             }
         );
