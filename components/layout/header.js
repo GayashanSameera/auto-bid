@@ -203,7 +203,7 @@ const HeaderComponent = (props) => {
                                             data-hover="false"
                                             data-delay="0"
                                             className={`${styles.nav_dropdown_2}  ${styles.padding_right} ${styles.padding_small} ${styles.w_dropdown}`}
-                                            className="  padding-small w-dropdown"
+                                            className="padding-small w-dropdown"
                                         >
                                             <div
                                                 className={`${styles.nav_dropdown_toggle}  ${styles.w_dropdown_toggle}`}

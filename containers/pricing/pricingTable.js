@@ -73,13 +73,13 @@ const pricingRowSelector = (type, row) => {
 
     let tags = null;
     if (type === "tick") {
-        tags = <div className={`${styles.pricing_row} ${styles.is_1}`}><img src="/Icon-material-done.png" loading="lazy" className={styles.package_icon_tick} /></div>
+        tags = <div className={`${styles.pricing_row} ${styles.is_1}`} key={row}><img src="/Icon-material-done.png" loading="lazy" className={styles.package_icon_tick} /></div>
     } else if (type === "cross") {
-        tags = <div className={`${styles.pricing_row} ${styles.is_1}`}><img src="/Icon-ionic-md-close.png" loading="lazy" className={styles.package_icon} /></div>
+        tags = <div className={`${styles.pricing_row} ${styles.is_1}`} key={row} ><img src="/Icon-ionic-md-close.png" loading="lazy" className={styles.package_icon} /></div>
     } else if (type === "request-only") {
-        tags = <div className={`${styles.pricing_row} ${styles.is_1}`}> <p className={styles.package_text}>Request only</p> </div>
+        tags = <div className={`${styles.pricing_row} ${styles.is_1}`} key={row}> <p className={styles.package_text}>Request only</p> </div>
     } else {
-        tags = <div className={`${styles.pricing_row} ${styles.is_1}`}></div>
+        tags = <div className={`${styles.pricing_row} ${styles.is_1}`} key={row}></div>
     }
 
     return tags;
@@ -90,7 +90,7 @@ const pricingRowSelector = (type, row) => {
 const pricingCreator = (params, ind) => {
     const { cl_data = [], description, is_gold } = params;
     return (
-        <div className={`${styles.w_layout_grid} ${styles.pricing_row}`}>
+        <div className={`${styles.w_layout_grid} ${styles.pricing_row}`} key={ind}>
             <div className={styles.pricing_feature}>
                 <div className={`${styles.package_desc_list} ${is_gold ? styles.is_gold : ''}`} >{description}</div>
             </div>

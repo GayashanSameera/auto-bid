@@ -14,6 +14,12 @@ const sampleDate = [
         title: "Europe Street beat 2",
         description: "Heavy Duty Machinery Auction",
         src: "/Group-2072.png"
+    },
+    {
+        id: "3",
+        title: "Europe Street beat 3",
+        description: "Heavy Duty Machinery Auction",
+        src: "/Group-2072.png"
     }
 ]
 
@@ -26,8 +32,8 @@ function AuctionContainer(props) {
                 !params.length ?
                     (<Row>
                         {
-                            sampleDate.map(item => (
-                                <SmallCard item={item} onclickNavigate={`/auction/auction-details/${item.id}`} />
+                            sampleDate.map((item, index) => (
+                                <SmallCard item={item} key={index} onclickNavigate={`/auction/auction-details/${item.id}`} />
                             ))
                         }
                     </Row>)
