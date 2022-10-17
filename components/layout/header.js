@@ -9,9 +9,10 @@ import { DownOutlined, UpOutlined } from "@ant-design/icons";
 import { LoginModal } from "../modals/loginModal";
 import { requestAuthentication, requestLogedOut } from "../../sclices/userSlice";
 import { checkPrivateRoute } from "../../helpers/routingPathHelper";
+import { getVerifiedSession } from '../../helpers/sessionHelper';
 
 const HeaderComponent = (props) => {
-    const { session = null } = props;
+
     const dispatch = useDispatch();
     const router = useRouter();
 
@@ -25,7 +26,9 @@ const HeaderComponent = (props) => {
     useEffect(() => {
         if (!isAuthenticating) {
             LoginModalOpenStateChange(false);
-            if (!checkPrivateRoute(router) && !session) {
+            const session = getVerifiedSession();
+
+            if (!checkPrivateRoute(router) && session) {
                 router.push({
                     pathname: "/auction",
                     //query: { component: 'init' }  // we can pass query params by adding this 
@@ -36,12 +39,13 @@ const HeaderComponent = (props) => {
     }, [isAuthenticating]);
 
     useEffect(() => {
+        const session = getVerifiedSession();
         if (session) {
             isLogedinChange(true);
         } else {
             isLogedinChange(false);
         }
-    }, [session]);
+    }, [getVerifiedSession()]);
 
     const requestVerify = (data) => {
         const request = {
