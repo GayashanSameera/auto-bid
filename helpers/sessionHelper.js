@@ -4,8 +4,8 @@ import BrowserStorage from '../middlewares/storage';
 
 export const handleSession = session => {
     let loggedUser = BrowserStorage.getInstance().getLoggedUser();
-    loggedUser = session ? session.loggedUser : null;
-    BrowserStorage.getInstance().setUserSession(session);
+    loggedUser = session ? session.data : null;
+    BrowserStorage.getInstance().setUserSession(loggedUser);
 };
 
 export const clearSession = data => {

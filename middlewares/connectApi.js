@@ -50,12 +50,15 @@ const getIdToken = () => {
 const connectApi = {
     doLogin: data => {
         return axios.post(
-            `${userDomain}${prefix}${userVersion}/user/verify`,
+            // `${userDomain}${prefix}${userVersion}/user/verify`, // api correct format
+            `${userDomain}${prefix}/login`,
             {
-                ...data
+                ...data,
             },
             {
-                skipAuthRefresh: true,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             }
         );
     }

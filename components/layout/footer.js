@@ -44,10 +44,10 @@ const FooterComponent = (props) => {
                                     </div>
                                     <div >
                                         <p className={`${styles.text_size_regular} ${styles.text_weight_normal} ${styles.margin_right} ${styles.margin_xxxsmall}`}>Follow us</p>
-                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`} ><img src="/Group-2329.png" loading="lazy" alt="" class="icon-xsmall" /></span>
-                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`}><img src="/Group-2330.png" loading="lazy" alt="" class="icon-xsmall" /></span>
-                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`}><img src="/Group-2328.png" loading="lazy" alt="" class="icon-xsmall" /></span>
-                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_last} ${styles.is_icon_hover} ${styles.w_inline_block}`} ><img src="/Group-2331.png" loading="lazy" alt="" class="icon-xsmall" /></span>
+                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`} ><img src="/Group-2329.png" loading="lazy" alt="" className="icon-xsmall" /></span>
+                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`}><img src="/Group-2330.png" loading="lazy" alt="" className="icon-xsmall" /></span>
+                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_icon_hover} ${styles.w_inline_block}`}><img src="/Group-2328.png" loading="lazy" alt="" className="icon-xsmall" /></span>
+                                        <span className={`${styles.app_link} ${styles.margin_right} ${styles.margin_small} ${styles.is_last} ${styles.is_icon_hover} ${styles.w_inline_block}`} ><img src="/Group-2331.png" loading="lazy" alt="" className="icon-xsmall" /></span>
                                     </div>
                                 </div>
                             </div>
