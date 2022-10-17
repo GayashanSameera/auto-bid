@@ -1,0 +1,301 @@
+/** {*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+.is_stroke:hover {
+    color: #fff;
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-text-stroke: 0.02rem #FFCB05;
+}
+.outline_text_display{
+    -webkit-text-stroke: 2px;
+    -webkit-text-fill-color: Transparent;
+    font-family: 'DM Sans',sans-serif;
+}
+.input_field{
+    width: 100%;
+    margin-top: 0rem;
+    padding: 0.5rem 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D8D8D8;
+    border-radius: 0.25rem;
+    color: #000;
+    font-size: 1rem;
+}
+.input_field.code {
+    width: 4rem;
+    margin-right: 1.125rem;
+}
+.input_field.otp {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+.advance_search_form_wrapper .input_field {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    min-width: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .input-field.otp {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin-right: 0.5rem;
+    }
+}
+@media screen and (max-width: 375px) {
+    .input_field.otp {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin-right: 0.2rem;
+    }
+}
+.form_input_wrapper{
+    display:flex
+}
+/*::-webkit-input-placeholder { !* Chrome/Opera/Safari *!*/
+/*    color: #BABABA;*/
+/*}*/
+/*::-moz-placeholder { !* Firefox 19+ *!*/
+/*    color: #BABABA;*/
+/*}*/
+/*:-ms-input-placeholder { !* IE 10+ *!*/
+/*    color: #BABABA;*/
+/*}*/
+/*:-moz-placeholder { !* Firefox 18- *!*/
+/*    color: #BABABA;*/
+/*}*/
+.styled_checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.styled_checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.styled_checkbox + .text_regular {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    display: flex;
+}
+.styled_checkbox + label:before {
+    content: '';
+    margin-right: 0.625rem;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 0.8rem;
+    height: 0.8rem;
+    min-width: 0.8rem;
+    min-height: 0.8rem;
+    background: white;
+    border: 2px solid #000;
+}
+.styled_checkbox:hover + label:before {
+    background: #ffcb05;
+}
+.styled_checkbox:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+.styled_checkbox:checked + label:before {
+    background: #ffcb05;
+}
+.styled_checkbox:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    top: 0.5rem;
+    background: #000;
+    width: 0.125rem;
+    height: 0.125rem;
+    box-shadow: 2px 0 0 #000, 4px 0 0 #000, 4px -2px 0 #000, 4px -4px 0 #000, 4px -6px 0 #000, 4px -8px 0 #000;
+    transform: rotate(45deg);
+}
+.text_green_middle{
+    color:#069D06  !important;
+    font-weight:700;
+}
+.text_red_middle{
+    color:#FF0000 !important;
+    font-weight:700;
+}
+.text_muted_middle{
+    color:#5C5C5C;
+}
+/* The container */
+.radio_container {
+    display: block;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom:0;
+    font-size:0.8rem;
+}
+/* Hide the browser's default radio button */
+.radio_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background-color: #ffffff;
+    border: 4px solid #B4B4B4;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+}
+/* On mouse-over, add a grey background color */
+.radio_container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+/* When the radio button is checked, add a blue background */
+.radio_container input:checked ~ .checkmark {
+    background-color: #FFCB05;
+    border: 4px solid #000000;
+}
+.year_breaker{
+    padding: 0 0.3rem 0 0.3rem;
+}
+.input_field {
+    width: 100%;
+    margin-top: 0rem;
+    padding: 0.5rem ;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d8d8d8;
+    border-radius: 0.25rem;
+    color: #000;
+    font-size: 1rem;
+}
+.input_field.code {
+    width: 4rem;
+    margin-right: 1.125rem;
+}
+.input_field.otp {
+
+    margin-right: 0.5rem;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .input-field.otp {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin-right: 0.5rem;
+    }
+}
+@media screen and (max-width: 375px) {
+    .input-field.otp {
+        width: 2.4rem;
+        height: 2.4rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin-right: 0.2rem;
+    }
+}
+/* Snippet gets rid of top margin on first element in any rich text*/
+.w-richtext>:first-child {
+    margin-top: 0;
+}
+/* Snippet gets rid of bottom margin on last element in any rich text*/
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+    margin-bottom: 0;
+}
+/* Snippet makes all link elements listed below to inherit color from their parent */
+/*a,*/
+/*.w-tab-link,*/
+/*.w-nav-link,*/
+/*.w-dropdown-btn,*/
+/*.w-dropdown-toggle,*/
+/*.w-dropdown-link*/
+/*{*/
+/*    color: inherit;*/
+/*}*/
+/* Snippet prevents all click and hover interaction with an element */
+.clickable_off {
+    pointer-events: none;
+}
+/* Snippet enables all click and hover interaction with an element */
+.clickable_on{
+    pointer-events: auto;
+}
+/* Snippet enables you to add class of div-square which creates and maintains a 1:1 dimension of a div.*/
+.div_square::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+/*Hide focus outline for main content element*/
+/*main:focus-visible {*/
+/*    outline: -webkit-focus-ring-color auto 0px;*/
+/*}*/
+/* Make sure containers never lose their center alignment*/
+.container_medium, .container_small, .container_large {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+/*Reset selects, buttons, and links styles*/
+/*.w-input, .w-select, a {*/
+/*    color: inherit;*/
+/*    text-decoration: inherit;*/
+/*    font-size: inherit;*/
+/*}*/
+/*Apply "..." after 3 lines of text */
+.text_style_3lines {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text_style_2lines {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* Apply "..." at 100% width */
+.truncate_width {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Removes native scrollbar */
+.no_scrollbar {
+    -ms-overflow-style: none;
+overflow: -moz-scrollbars-none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.section {
+    position: relative;
+    top: auto;
+}
