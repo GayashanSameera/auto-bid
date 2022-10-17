@@ -5,7 +5,7 @@ import devConfig from './dev';
 import uatConfig from './uat';
 
 const env = process.env.APP_ENV;
-console.log('env', env);
+
 const envConfig =
     env === 'qa'
         ? qaConfig

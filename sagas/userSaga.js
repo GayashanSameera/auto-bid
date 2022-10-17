@@ -17,7 +17,6 @@ export function* userVerify(data) {
         handleSession(result.data);
         NotificationHelper.getInstance().success("Successfully Loged in.");
     } catch (error) {
-        console.log('error', error);
         yield put(authenticationFailed(error));
         NotificationHelper.getInstance().error("Login Failed !");
     }

@@ -1,2 +1,2 @@
-export const PRIVATE_ROUTE_BASES = ['dashboad'];
+export const PRIVATE_ROUTE_BASES = ['auction', 'information'];
 

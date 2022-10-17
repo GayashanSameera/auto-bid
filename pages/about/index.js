@@ -1,8 +1,9 @@
+import AboutContainer from "../../containers/about"
 export default function About() {
 
     return (
         <div>
-            About
+            <AboutContainer />
         </div>
     )
 }

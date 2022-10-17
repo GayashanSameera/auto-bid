@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./dashboadWrapper.module.css";
 
-export default function DashboadWrapper(props) {
+const DashboadWrapper = (props) => {
     return (
         <>
             <div className={`${styles.section_component} ${styles.is_my_order}`}>
@@ -98,14 +98,14 @@ export default function DashboadWrapper(props) {
                                         </div>
                                         <div className={styles.my_account_link_wrap}>
                                             <div className={styles.my_account_lick_wrapper}>
-                                                <Link href="/dashboad/update-information">
+                                                <Link href="/information">
                                                 <a className={`${styles.link_wrapper} ${styles.w_inline_block}`}>
                                                     <p className={styles.my_account_link}>Update Information</p>
                                                 </a>
                                                 </Link>
                                             </div>
                                             <div className={styles.my_account_lick_wrapper}>
-                                                <Link href="/dashboad/outstanding-statement">
+                                                <Link href="/information/outstanding-statement">
                                                 <a className={`${styles.link_wrapper} ${styles.w_inline_block}`}>
                                                     <p className={styles.my_account_link}>Outstanding Statement</p>
                                                 </a>
@@ -155,3 +155,5 @@ export default function DashboadWrapper(props) {
         </>
     );
 }
+
+export default DashboadWrapper;

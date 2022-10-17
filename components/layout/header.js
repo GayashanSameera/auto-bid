@@ -9,9 +9,10 @@ import { DownOutlined, UpOutlined } from "@ant-design/icons";
 import { LoginModal } from "../modals/loginModal";
 import { requestAuthentication, requestLogedOut } from "../../sclices/userSlice";
 import { checkPrivateRoute } from "../../helpers/routingPathHelper";
+import { getVerifiedSession } from '../../helpers/sessionHelper';
 
-export default function HeaderComponent(props) {
-    const { session = null } = props;
+const HeaderComponent = (props) => {
+
     const dispatch = useDispatch();
     const router = useRouter();
 
@@ -25,9 +26,11 @@ export default function HeaderComponent(props) {
     useEffect(() => {
         if (!isAuthenticating) {
             LoginModalOpenStateChange(false);
-            if (!checkPrivateRoute(router) && !session) {
+            const session = getVerifiedSession();
+
+            if (!checkPrivateRoute(router) && session) {
                 router.push({
-                    pathname: "/dashboad",
+                    pathname: "/auction",
                     //query: { component: 'init' }  // we can pass query params by adding this 
                 });
 
@@ -36,15 +39,25 @@ export default function HeaderComponent(props) {
     }, [isAuthenticating]);
 
     useEffect(() => {
+        const session = getVerifiedSession();
         if (session) {
             isLogedinChange(true);
         } else {
             isLogedinChange(false);
         }
-    }, [session]);
+    }, [getVerifiedSession()]);
 
     const requestVerify = (data) => {
-        dispatch(requestAuthentication(data));
+        const request = {
+            ...data,
+            //created sample request plz get correct details
+            "timestamp": 123456789,
+            "api_key": "fd3c38777c17174799e1858f544acd5a15454d77",
+            "device_id": "dtE6bQriY07Orx8Qkg50Jv",
+            "os": "A",
+            "firebase_id": "dtE6bQriY07Orx8Qkg50Jv"
+        }
+        dispatch(requestAuthentication(request));
     };
 
     const clickOnLogin = (event) => {
@@ -129,7 +142,7 @@ export default function HeaderComponent(props) {
                                         </Link>
                                         {isLogedin ? (
                                             <>
-                                                <Link href="/auctions">
+                                                <Link href="/auction">
                                                     <a
                                                         className={`${styles.nav_link}  ${styles.isStroke} ${styles.w_nav_link}`}
                                                     >
@@ -190,7 +203,7 @@ export default function HeaderComponent(props) {
                                             data-hover="false"
                                             data-delay="0"
                                             className={`${styles.nav_dropdown_2}  ${styles.padding_right} ${styles.padding_small} ${styles.w_dropdown}`}
-                                            class="  padding-small w-dropdown"
+                                            className="padding-small w-dropdown"
                                         >
                                             <div
                                                 className={`${styles.nav_dropdown_toggle}  ${styles.w_dropdown_toggle}`}
@@ -285,4 +298,6 @@ export default function HeaderComponent(props) {
         </div>
     );
 }
-//
+
+
+export default HeaderComponent;

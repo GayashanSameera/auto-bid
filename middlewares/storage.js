@@ -31,7 +31,7 @@ class BrowserStorage {
     const session = this.getUserSession();
     if (session == null) return null;
 
-    return session.loggedUser;
+    return session;
   }
 
   getFromStorage(key) {
