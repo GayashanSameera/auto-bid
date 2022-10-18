@@ -4,19 +4,19 @@ import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
 import styles from './Contact.module.css'
 import {InputField} from "../../components/formFields";
-import {Breadcrumb} from "../../components/breadcrumb";
+import {Breadcrumb} from "../../components/breadcrumb/breadcrumb";
 
 export default function Contact() {
 
     return (
         <>
             <Breadcrumb/>
-            <div className="section is-auction">
-                <div className="page-padding">
-                    <div className="container-large">
-                        <div className="padding-vertical padding-xlarge">
-                            <div className="contact-wrapper">
-                                <div className="w-layout-grid grid-2-column is-contact">
+            <div className={`${styles.section} ${styles.is_auction}`}>
+                <div className={`${styles.page_padding}`}>
+                    <div className={`${styles.container_large}`}>
+                        <div className={`${styles.padding_vertical} ${styles.padding_xlarge}`}>
+                            <div >
+                                <div className={`${styles.w_layout_grid} ${styles.grid_2_column}`}>
                                     <div id="w-node-_6dd01b4f-e8e1-fc3f-0cd4-0d9a5632ba37-bdd1eb58" className="package-content-left">
                                         <div className="contact-form-content">
                                             <div className="margin-bottom margin-medium">
@@ -83,24 +83,24 @@ export default function Contact() {
                                             </div>
                                         </div>
                                     <div id="w-node-_6dd01b4f-e8e1-fc3f-0cd4-0d9a5632ba38-bdd1eb58" className="package-content-right">
-                                        <div className="contact-content-wrapper">
-                                            <div className="contact-details-card-wrapper">
-                                                <div className="margin-bottom margin-xxsmall">
-                                                    <p className="text-size-small text-color-gold">Location</p>
+                                        <div className={`${styles.contact_content_wrapper}`}>
+                                            <div className={`${styles.contact_details_card_wrapper}`}>
+                                                <div className={`${styles.margin_bottom} ${styles.margin_xxsmall}`}>
+                                                    <p className={`${styles.text_size_small} ${styles.text_color_gold}`}>Location</p>
                                                 </div>
-                                                <p className="text-size-large text-color-white">Kobe Motors LLC Tokyo, Japan, XXXXX</p>
+                                                <p className={`${styles.text_size_large} ${styles.text_color_white}`}>Kobe Motors LLC Tokyo, Japan, XXXXX</p>
                                             </div>
-                                            <div className="contact-details-card-wrapper">
-                                                <div className="margin-bottom margin-xxsmall">
-                                                    <p className="text-size-small text-color-gold">General Inquiries</p>
+                                            <div className={`${styles.contact_details_card_wrapper}`}>
+                                                <div className={`${styles.margin_bottom} ${styles.margin_xxsmall}`}>
+                                                    <p className={`${styles.text_size_small} ${styles.text_color_gold}`}>General Inquiries</p>
                                                 </div>
-                                                <p className="text-size-large text-color-white">Call Auto Bid 360 USA Call Auto Bid 360 USA</p>
+                                                <p className={`${styles.text_size_large} ${styles.text_color_white}`}>Call Auto Bid 360 USA Call Auto Bid 360 USA</p>
                                             </div>
-                                            <div className="contact-details-card-wrapper is-last">
-                                                <div className="margin-bottom margin-xxsmall">
-                                                    <p className="text-size-small text-color-gold">General Inquiries</p>
+                                            <div className={`${styles.contact_details_card_wrapper} ${styles.is_last}`}>
+                                                <div className={`${styles.margin_bottom} ${styles.margin_xxsmall}`}>
+                                                    <p className={`${styles.text_size_small} ${styles.text_color_gold}`}>General Inquiries</p>
                                                 </div>
-                                                <p className="text-size-large text-color-white">Call Auto Bid 360 USA Call Auto Bid 360 USA</p>
+                                                <p className={`${styles.text_size_large} ${styles.text_color_white}`}>Call Auto Bid 360 USA Call Auto Bid 360 USA</p>
                                             </div>
                                         </div>
                                     </div>
