@@ -51,7 +51,7 @@ const AboutHeader = () => {
                                     <h1 >Over two decades in the car export industry since 1997.</h1>
                                 </div>
                                 <div className={`${styles.about_content_right}`} >
-                                    <div className={`${styles.image_wrapper}`} ><img src="/Group-3163.png" loading="lazy" sizes="(max-width: 479px) 100vw, 90vw" srcset="/Group-3163-p-500.png 500w, /Group-3163-p-800.png 800w, /Group-3163.png 978w" className={`${styles.image_cover}`} /></div>
+                                    <div className={`${styles.image_wrapper}`} ><img src="/Group-3163.png" loading="lazy" sizes="(max-width: 479px) 100vw, 90vw" className={`${styles.image_cover}`} /></div>
                                 </div>
                             </div>
                         </div>
